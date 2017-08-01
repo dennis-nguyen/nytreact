@@ -9,13 +9,8 @@ class Search extends Component {
       start: "",
       end: ""
     };
-    this.handleChange = this
-      .handleChange
-      .bind(this);
-
-    this.testSubmit = this
-      .testSubmit
-      .bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.testSubmit = this.testSubmit.bind(this);
   }
 
   handleChange(e) {
@@ -33,9 +28,7 @@ class Search extends Component {
     console.log(this.state.start);
     console.log(this.state.end);
 
-    helpers
-      .queryNYT(term, start, end)
-      .then((data) => {
+    helpers.queryNYT(term, start, end).then((data) => {
         this.props.grabNYT(data.data.response.docs);
       });
 

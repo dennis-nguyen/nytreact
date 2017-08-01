@@ -14,6 +14,7 @@ class Main extends Component {
 
     this.grabNYT = this.grabNYT.bind(this);
     this.saveArticle = this.saveArticle.bind(this);
+    this.requeryDB = this.requeryDB.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +36,14 @@ class Main extends Component {
       });
     });
   }
+
+  requeryDB(article) {
+    let index = this.state.savedArticle.findIndex(x => x.title == article.title);
+    let currentSaved = this.state.savedArticle;
+    currentSaved.splice(index, 1);
+
+    this.setState({ savedArticle: currentSaved });
+  }
   // resultsNYT() {
 
   // }
@@ -54,7 +63,7 @@ class Main extends Component {
         </h4>
         <Search grabNYT={this.grabNYT}/>
         <Results resultsNYT={this.state.articles} saveArticle={this.saveArticle}/>
-        <Saved saved={this.state.savedArticle}/>
+        <Saved saved={this.state.savedArticle} requeryDB={this.requeryDB}/>
       </div>
     );
   }

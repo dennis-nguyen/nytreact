@@ -4,11 +4,10 @@ import SavedItem from "./SavedItem";
 class Saved extends Component {
   render() {
     let savedItems;
-    console.log(this.props.saved);
     if(this.props.saved) {
       savedItems = this.props.saved.map((data,i) => {
           return (
-          <SavedItem key={i} index={i} article={data}/>
+          <SavedItem key={i} index={i} article={data} requeryDB={this.props.requeryDB}/>
         );
       });
     }

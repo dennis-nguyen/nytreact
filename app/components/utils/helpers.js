@@ -16,8 +16,13 @@ let helper = {
     return axios.post("/api", article);
   },
 
-  deleteFromDB: function () {
-
+  deleteFromDB: function (article) {
+    console.log("helpers delete function")
+    return axios({
+    method: 'delete',
+    url: '/api',
+    data: article
+    });
   },
 
   queryFromDB: function () {

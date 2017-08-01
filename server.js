@@ -74,6 +74,19 @@ app.post("/api", function (req, res) {
   });
 });
 
+app.delete("/api", function (req, res) {
+  console.log(req.body);
+  // console.log(req);
+  console.log("server side delete")
+  Articles.remove(req.body, function (err) {
+    if (err) {
+      return handleError(err);
+    } else {
+      res.send("Deleted!")
+    }
+  });
+});
+
 // -------------------------------------------------
 
 // Listener
