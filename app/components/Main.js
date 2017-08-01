@@ -9,14 +9,17 @@ class Main extends Component {
     super(props);
     this.state = {
       articles: [],
-      savedArticle: {}
+      savedArticle: []
     };
-    // this.handleChange = this
-    //   .handleChange
-    //   .bind(this);
 
     this.grabNYT = this.grabNYT.bind(this);
     this.saveArticle = this.saveArticle.bind(this);
+  }
+
+  componentDidMount() {
+    helpers.queryFromDB().then((response)=>{
+        this.setState({ savedArticle: response.data });
+      });
   }
   grabNYT(articles) {
     this.setState({ articles: articles });
@@ -26,11 +29,11 @@ class Main extends Component {
   saveArticle(article) {
     console.log(article);
     helpers.saveToDB(article).then((response)=>{
-      // console.log(response.config.data);
-      this.setState({ savedArticle: article });
+      helpers.queryFromDB().then((response)=>{
+        console.log(response);
+        this.setState({ savedArticle: response.data });
+      });
     });
-    // this.setState({ savedArticle: article });
-    // console.log(this.state.savedArticle);
   }
   // resultsNYT() {
 

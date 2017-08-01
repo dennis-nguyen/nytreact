@@ -50,7 +50,13 @@ app.get("/", function (req, res) {
 // We will call this route the moment our page gets rendered
 app.get("/api", function (req, res) {
 
-  // We will find all the records, sort it in descending order, then limit the records to 5
+  Articles.find({}).exec(function (err, doc) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(doc);
+    }
+  });
 
 });
 

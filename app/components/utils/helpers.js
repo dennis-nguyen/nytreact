@@ -18,6 +18,10 @@ let helper = {
 
   deleteFromDB: function () {
 
+  },
+
+  queryFromDB: function () {
+    return axios.get("/api");
   }
 };
 
