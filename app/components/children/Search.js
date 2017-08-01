@@ -43,7 +43,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="Search">
+      <div className="Search col-lg-12">
         <div className="panel panel-default">
           <div className="panel-heading">
             <h3 className="panel-title text-center">Search</h3>

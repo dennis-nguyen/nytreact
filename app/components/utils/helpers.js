@@ -9,6 +9,15 @@ let helper = {
     return axios.get(queryURL).then(function (response) {
       return response;
     });
+  },
+
+  saveToDB: function (article) {
+    console.log(article);
+    return axios.post("/api", article);
+  },
+
+  deleteFromDB: function () {
+
   }
 };
 
