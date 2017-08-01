@@ -28,13 +28,18 @@ class Main extends Component {
   }
   
   saveArticle(article) {
-    console.log(article);
-    helpers.saveToDB(article).then((response)=>{
-      helpers.queryFromDB().then((response)=>{
-        console.log(response);
-        this.setState({ savedArticle: response.data });
+    let index = this.state.savedArticle.findIndex(x => x.title == article.title);
+    let currentSaved = this.state.savedArticle;
+    if(index == -1) {
+      helpers.saveToDB(article).then((response)=>{
+        helpers.queryFromDB().then((response)=>{
+          console.log(response);
+          this.setState({ savedArticle: response.data });
+        });
       });
-    });
+    } else {
+      alert("Article already saved");
+    }
   }
 
   requeryDB(article) {
