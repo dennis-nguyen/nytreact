@@ -4,8 +4,9 @@ var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
-// Require History Schema
+// Require Schemas
 var Articles = require("./models/Articles");
+var Notes = require("./models/Notes");
 
 // Create Instance of Express
 var app = express();
@@ -60,6 +61,22 @@ app.get("/api", function (req, res) {
 
 });
 
+app.get("/notes", function (req, res) {
+//  console.log(req.query);
+// //  console.log(req);
+//  console.log("get request")
+ Notes.find({
+   id: req.query.id
+ }).exec(function (err, doc) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(doc);
+    }
+  });
+
+});
+
 // This is the route we will send POST requests to save each search.
 app.post("/api", function (req, res) {
   console.log(req.body);
@@ -74,11 +91,34 @@ app.post("/api", function (req, res) {
   });
 });
 
-app.delete("/api", function (req, res) {
+// This is the route we will send POST requests to save each search.
+app.post("/notes", function (req, res) {
   console.log(req.body);
-  // console.log(req);
-  console.log("server side delete")
+  console.log("note post working");
+
+  Notes.create(req.body, function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send("Saved Notes");
+    }
+  });
+});
+
+app.delete("/api", function (req, res) {
   Articles.remove(req.body, function (err) {
+    if (err) {
+      return handleError(err);
+    } else {
+      res.send("Deleted!")
+    }
+  });
+});
+
+app.delete("/notes", function (req, res) {
+  Notes.remove({
+    _id: req.body
+  }, function (err) {
     if (err) {
       return handleError(err);
     } else {

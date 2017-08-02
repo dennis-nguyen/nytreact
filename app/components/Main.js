@@ -19,12 +19,12 @@ class Main extends Component {
 
   componentDidMount() {
     helpers.queryFromDB().then((response)=>{
+      console.log(response);
         this.setState({ savedArticle: response.data });
       });
   }
   grabNYT(articles) {
     this.setState({ articles: articles });
-    console.log(this.state.articles);
   }
   
   saveArticle(article) {
@@ -48,6 +48,7 @@ class Main extends Component {
     currentSaved.splice(index, 1);
 
     this.setState({ savedArticle: currentSaved });
+    console.log(this.state.savedArticle)
   }
   // resultsNYT() {
 

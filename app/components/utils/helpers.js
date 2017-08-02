@@ -10,12 +10,12 @@ let helper = {
       return response;
     });
   },
-
+  // SAVE ARTICLES TO DB
   saveToDB: function (article) {
     console.log(article);
     return axios.post("/api", article);
   },
-
+  // DELETES ARTICLES FROM DB
   deleteFromDB: function (article) {
     console.log("helpers delete function")
     return axios({
@@ -24,10 +24,33 @@ let helper = {
     data: article
     });
   },
-
+  // QUERY SAVED ARTICLES FROM DB
   queryFromDB: function () {
     return axios.get("/api");
+  },
+  // QUERY ARTICLES NOTES FROM DB
+  queryNotes: function (ID) {
+    console.log(ID);
+    return axios.get("/notes",{
+      params: {
+        id: ID
+      }
+    });
+  },
+  // ADD ARTICLE NOTES TO DB
+  addNotes: function (note) {
+    return axios.post("/notes", note);
+  },
+  // DELETES NOTE FROM DB
+  deleteNote: function (ID) {
+    console.log("helpers delete function")
+    return axios({
+    method: 'delete',
+    url: '/notes',
+    data: ID
+    });
   }
+
 };
 
 // We export the API helper
