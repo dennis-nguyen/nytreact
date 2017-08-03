@@ -7,7 +7,7 @@ class Saved extends Component {
     if(this.props.saved) {
       savedItems = this.props.saved.map((data,i) => {
           return (
-          <SavedItem key={i} index={i} article={data} requeryDB={this.props.requeryDB}/>
+          <SavedItem key={i} index={i} article={data} updateSaved={this.props.updateSaved}/>
         );
       });
     }
@@ -17,7 +17,7 @@ class Saved extends Component {
           <div className="panel-heading">
             <h3 className="panel-title text-center">Saved</h3>
           </div>
-          <div className="panel-body pre-scrollable">
+          <div className="panel-body savePanel">
             {savedItems}
           </div>
         </div>

@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 import helpers from "../utils/helpers";
+import { BrowserRouter as Router, Link, Route, withRouter } from 'react-router-dom'
+
+const SearchButton = withRouter(({history}) => (
+  <button className="btn btn-primary center-block" type='submit' onClick={() => { history.replace('/Results') }}>Search</button>
+))
 
 class Search extends Component {
   constructor(props) {
@@ -69,9 +74,7 @@ class Search extends Component {
                   onChange={this.handleChange}
                   required/>
                 <br/>
-                <button className="btn btn-primary center-block" type="submit">
-                  Search
-                </button>
+                  <SearchButton />
               </div>
             </form>
           </div>

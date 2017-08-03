@@ -48,7 +48,7 @@ class SavedItem extends Component {
       url: this.props.article.url
     }
     helpers.deleteFromDB(currentArticle).then((response)=>{
-      this.props.requeryDB(currentArticle);
+      this.props.updateSaved(currentArticle);
     });
   } 
   

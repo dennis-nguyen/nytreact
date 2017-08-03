@@ -6,6 +6,11 @@
 body {
   background-image: url("https://static.pexels.com/photos/365637/pexels-photo-365637.jpeg");
   background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
 }
 
@@ -13,8 +18,16 @@ h1 {
   font-family: 'Roboto Slab', serif;
 }
 
+.panel-heading {
+  font-family: 'Roboto Slab', serif;
+}
+
 h4 {
   font-family: 'Zilla Slab', serif;
+}
+
+.panel-title a {
+  font-family: 'PT Serif', serif;
 }
 .panel-default{
     background: transparent;
@@ -24,4 +37,9 @@ h4 {
 } */
 .panel-default .panel-body{
    background:  rgba(46, 51, 56, 0.4);
+}
+
+.savePanel {
+  overflow-y: auto;
+  max-height: 340px;
 }
