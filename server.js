@@ -1,17 +1,16 @@
 // Include Server Dependencies
-var express = require("express");
-var bodyParser = require("body-parser");
-var logger = require("morgan");
-var mongoose = require("mongoose");
+const express = require("express");
+const bodyParser = require("body-parser");
+const logger = require("morgan");
+const mongoose = require("mongoose");
 
 // Require Schemas
-var Articles = require("./models/Articles");
-var Notes = require("./models/Notes");
+const Articles = require("./models/Articles");
+const Notes = require("./models/Notes");
 
 // Create Instance of Express
-var app = express();
-// Sets an initial port. We'll use this later in our listener
-var PORT = process.env.PORT || 3000;
+const app = express();
+const PORT = process.env.PORT || 3000;
 
 // Run Morgan for Logging
 app.use(logger("dev"));
@@ -30,7 +29,7 @@ app.use(express.static("public"));
 
 // MongoDB Configuration configuration (Change this URL to your own DB)
 mongoose.connect('mongodb://localhost/nytreact');
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 db.on("error", function (err) {
   console.log("Mongoose Error: ", err);
@@ -62,9 +61,6 @@ app.get("/api", function (req, res) {
 });
 
 app.get("/notes", function (req, res) {
-//  console.log(req.query);
-// //  console.log(req);
-//  console.log("get request")
  Notes.find({
    id: req.query.id
  }).exec(function (err, doc) {

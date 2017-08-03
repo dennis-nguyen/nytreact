@@ -50,15 +50,9 @@ class Main extends Component {
     this.setState({ savedArticle: currentSaved });
     console.log(this.state.savedArticle)
   }
-  // resultsNYT() {
-
-  // }
-
-  // componentDidUpdate() {
-
-  // }
 
   render() {
+    const isLoggedIn = this.state.articles;
     return (
       <div className="col-lg-12">
         <h1 className="text-center">

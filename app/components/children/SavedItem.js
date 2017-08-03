@@ -79,7 +79,7 @@ class SavedItem extends Component {
             </div>
             <div className="panel-body collapse" id={this.props.index}>
               <hr />
-              <div className={"notes" + this.props.index}>
+              <div className={"notes" + this.props.index}>  
                 {savedNotes}
                 <div className="form-group col-lg-12">
                   <input className="form-control input-sm" id="inputsm" type="text" onChange={this.handleChange} value={this.state.currentInput} />

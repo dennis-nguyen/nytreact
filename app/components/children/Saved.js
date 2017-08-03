@@ -17,9 +17,8 @@ class Saved extends Component {
           <div className="panel-heading">
             <h3 className="panel-title text-center">Saved</h3>
           </div>
-          <div className="panel-body">
+          <div className="panel-body pre-scrollable">
             {savedItems}
-            {this.props.saved.url}
           </div>
         </div>
       </div>

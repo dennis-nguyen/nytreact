@@ -1,4 +1,27 @@
-.panel-default > .panel-heading {
-  background-color: #428bca;
+.panel-default>.panel-heading {
+  background-color: #437398;
   color: white;
+}
+
+body {
+  background-image: url("https://static.pexels.com/photos/365637/pexels-photo-365637.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  font-family: 'Roboto Slab', serif;
+}
+
+h4 {
+  font-family: 'Zilla Slab', serif;
+}
+.panel-default{
+    background: transparent;
+}
+/* .panel-default .panel-heading{
+    background: transparent;
+} */
+.panel-default .panel-body{
+   background:  rgba(46, 51, 56, 0.4);
 }
