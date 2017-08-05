@@ -52,22 +52,25 @@ class Search extends Component {
                   name="topic"
                   value={this.state.topic}
                   onChange={this.handleChange}
+                  placeholder="Example: California Drought"
                   required/>
                 <h4 className="text-center">Start Year</h4>
                 <input
-                  type="text"
+                  type="Number"
                   className="form-control text-center"
                   name="start"
                   value={this.state.start}
                   onChange={this.handleChange}
+                  placeholder="Example: 2015"
                   required/>
                 <h4 className="text-center">End Year</h4>
                 <input
-                  type="text"
+                  type="Number"
                   className="form-control text-center"
                   name="end"
                   value={this.state.end}
                   onChange={this.handleChange}
+                  placeholder="Example: 2016"
                   required/>
                 <br/>
                   <SearchButton />
