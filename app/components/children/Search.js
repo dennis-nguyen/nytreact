@@ -15,7 +15,7 @@ class Search extends Component {
       end: ""
     };
     this.handleChange = this.handleChange.bind(this);
-    this.testSubmit = this.testSubmit.bind(this);
+    this.articleSubmit = this.articleSubmit.bind(this);
   }
 
   handleChange(e) {
@@ -24,14 +24,11 @@ class Search extends Component {
     });
   }
 
-  testSubmit(e) {
+  articleSubmit(e) {
     e.preventDefault();
     let term = this.state.topic;
     let start = this.state.start;
     let end = this.state.end;
-    console.log(this.state.topic);
-    console.log(this.state.start);
-    console.log(this.state.end);
 
     helpers.queryNYT(term, start, end).then((data) => {
         this.props.grabNYT(data.data.response.docs);
@@ -47,7 +44,7 @@ class Search extends Component {
             <h3 className="panel-title text-center">Search</h3>
           </div>
           <div className="panel-body">
-            <form onSubmit={this.testSubmit}>
+            <form onSubmit={this.articleSubmit}>
               <div className="form-group">
                 <h4 className="text-center">Topic</h4>
                 <input

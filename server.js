@@ -1,18 +1,18 @@
-// Include Server Dependencies
+// Server Dependencies
 const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 
-// Require Schemas
+// Schemas
 const Articles = require("./models/Articles");
 const Notes = require("./models/Notes");
 
-// Create Instance of Express
+// Express
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Run Morgan for Logging
+// Morgan for Logging
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -27,8 +27,9 @@ app.use(express.static("public"));
 
 // -------------------------------------------------
 
-// MongoDB Configuration configuration (Change this URL to your own DB)
-mongoose.connect('mongodb://localhost/nytreact');
+// MongoDB Configuration
+// mongoose.connect('mongodb://heroku_t2gfv3zf:uen6eu649kst00g6u8kpjc2430@ds151202.mlab.com:51202/heroku_t2gfv3zf'); //Deployed
+mongoose.connect('mongodb://localhost/nytreact'); //Local
 const db = mongoose.connection;
 
 db.on("error", function (err) {
@@ -39,15 +40,14 @@ db.once("open", function () {
   console.log("Mongoose connection successful.");
 });
 
-// -------------------------------------------------
+// Routes
 
-// Main "/" Route. This will redirect the user to our rendered React application
+// This will redirect the users to index.html
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/public/index.html");
 });
 
-// This is the route we will send GET requests to retrieve our most recent search data.
-// We will call this route the moment our page gets rendered
+// Get route for articles
 app.get("/api", function (req, res) {
 
   Articles.find({}).exec(function (err, doc) {
@@ -60,6 +60,7 @@ app.get("/api", function (req, res) {
 
 });
 
+// Get route to query the notes
 app.get("/notes", function (req, res) {
  Notes.find({
    id: req.query.id
@@ -73,7 +74,7 @@ app.get("/notes", function (req, res) {
 
 });
 
-// This is the route we will send POST requests to save each search.
+// Post route to save articles
 app.post("/api", function (req, res) {
   console.log(req.body);
   console.log("post working");
@@ -87,7 +88,7 @@ app.post("/api", function (req, res) {
   });
 });
 
-// This is the route we will send POST requests to save each search.
+// Post route to save notes
 app.post("/notes", function (req, res) {
   console.log(req.body);
   console.log("note post working");
@@ -101,6 +102,7 @@ app.post("/notes", function (req, res) {
   });
 });
 
+// Delete route for articles
 app.delete("/api", function (req, res) {
   Articles.remove(req.body, function (err) {
     if (err) {
@@ -111,6 +113,7 @@ app.delete("/api", function (req, res) {
   });
 });
 
+// Delete route for notes
 app.delete("/notes", function (req, res) {
   Notes.remove({
     _id: req.body
@@ -123,7 +126,10 @@ app.delete("/notes", function (req, res) {
   });
 });
 
-// -------------------------------------------------
+// This will redirect the users to index.html - wildcard
+app.get("*", function (req, res) {
+  res.sendFile(__dirname + "/public/index.html");
+});
 
 // Listener
 app.listen(PORT, function () {

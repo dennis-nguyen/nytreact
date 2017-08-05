@@ -8,9 +8,9 @@ class Results extends Component {
       resultItems = this.props.resultsNYT.map((data,i) => {
         if(i < 5){
           return (
-          <ResultsItem key={i} index={i} article={data} saveArticle={this.props.saveArticle}/>
-        );
-      }
+            <ResultsItem key={i} index={i} article={data} saveArticle={this.props.saveArticle}/>
+          );
+        }
       });
     }
     return (

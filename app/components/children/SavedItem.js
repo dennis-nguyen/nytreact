@@ -61,7 +61,6 @@ class SavedItem extends Component {
   }
 
   render() {
-
     let savedNotes;
     if(this.state.notes) {
       savedNotes = this.state.notes.map((data,i) => {
