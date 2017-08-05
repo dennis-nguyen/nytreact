@@ -21,5 +21,5 @@ Ever looked at a New York Times Article and wanted to jot down some notes, but d
 - CSS
 - Twitter Bootstrap
 
-### APIs
+### API
 - New York Time Article Search
