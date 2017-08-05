@@ -4,7 +4,6 @@ import Results from './children/Results';
 import Saved from './children/Saved';
 import helpers from "./utils/helpers";
 import Alert from "./children/Alert";
-import { HashRouter as Router, Link, Route } from 'react-router-dom'
 
 class Main extends Component {
   constructor(props) {
@@ -56,7 +55,6 @@ class Main extends Component {
   }
   render() {
     return (
-      <Router>
         <div className="col-lg-12">
           <h1 className="text-center">
             New York Times Article Scrubber
@@ -66,10 +64,13 @@ class Main extends Component {
           </h4>
           <Alert alertVisible={this.state.alertVisible} alertHide={this.hideAlert}/>
           <Search grabNYT={this.grabNYT}/>
-          <Route exact path="/Results" render={()=> <Results resultsNYT={this.state.articles} saveArticle={this.saveArticle} />} /> 
-          <Saved saved={this.state.savedArticle} updateSaved={this.updateSaved}/>
+          {this.state.articles.length > 0 &&
+          <Results resultsNYT={this.state.articles} saveArticle={this.saveArticle} /> 
+          }
+          {this.state.savedArticle.length > 0 &&
+          <Saved saved={this.state.savedArticle} updateSaved={this.updateSaved} />
+          }
         </div>
-      </Router>
     );
   }
 }

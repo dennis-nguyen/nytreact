@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import helpers from "../utils/helpers";
-import { BrowserRouter as Router, Link, Route, withRouter } from 'react-router-dom'
 
-const SearchButton = withRouter(({history}) => (
-  <button className="btn btn-primary center-block" type='submit' onClick={() => { history.replace('/Results') }}>Search</button>
-))
+const SearchButton = () => (
+  <button className="btn btn-primary center-block" type='submit'>Search</button>
+)
 
 class Search extends Component {
   constructor(props) {

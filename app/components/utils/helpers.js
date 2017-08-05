@@ -12,12 +12,10 @@ let helper = {
   },
   // SAVE ARTICLES TO DB
   saveToDB: function (article) {
-    console.log(article);
     return axios.post("/api", article);
   },
   // DELETES ARTICLES FROM DB
   deleteFromDB: function (article) {
-    console.log("helpers delete function")
     return axios({
     method: 'delete',
     url: '/api',
@@ -30,7 +28,6 @@ let helper = {
   },
   // QUERY ARTICLES NOTES FROM DB
   queryNotes: function (ID) {
-    console.log(ID);
     return axios.get("/notes",{
       params: {
         id: ID
@@ -43,7 +40,6 @@ let helper = {
   },
   // DELETES NOTE FROM DB
   deleteNote: function (ID) {
-    console.log("helpers delete function")
     return axios({
     method: 'delete',
     url: '/notes',
