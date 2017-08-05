@@ -76,9 +76,6 @@ app.get("/notes", function (req, res) {
 
 // Post route to save articles
 app.post("/api", function (req, res) {
-  console.log(req.body);
-  console.log("post working");
-
   Articles.create(req.body, function (err) {
     if (err) {
       console.log(err);
@@ -90,9 +87,6 @@ app.post("/api", function (req, res) {
 
 // Post route to save notes
 app.post("/notes", function (req, res) {
-  console.log(req.body);
-  console.log("note post working");
-
   Notes.create(req.body, function (err) {
     if (err) {
       console.log(err);
