@@ -57,7 +57,7 @@ class Main extends Component {
     return (
         <div className="col-lg-12">
           <h1 className="text-center">
-            New York Times Article Scrubber
+            New York Times Article Searcher
           </h1>
           <h4 className="text-center">
             Search for and annotate articles of interest!
