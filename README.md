@@ -1,8 +1,8 @@
-New York Times Article Scrubber
+New York Times Article Searcher
 ===============
 
 ### Summary
-Ever looked at a New York Times Article and wanted to jot down some notes, but didn't have a pen? I have great news for you! The **New York Times Article Scrubber** is the web app that was made for someone like you. The **New York Times Article Scrubber** allows you to search for articles from the New York Times API. You then can save your favorite articles and even add notes to them!
+Ever looked at a New York Times Article and wanted to jot down some notes, but didn't have a pen? I have great news for you! The **New York Times Article Searcher** is the web app that was made for someone like you. The **New York Times Article Searcher** allows you to search for articles from the New York Times API. You then can save your favorite articles and even add notes to them!
 
 ### Feature List
 - Users can search for articles by supplying a topic and date range.
